@@ -1,30 +1,31 @@
 package ac.opctojms;
 
-import org.junit.Before;
+import org.easymock.TestSubject;
+import org.junit.Assert;
 import org.junit.Test;
-import org.openscada.opc.lib.da.Item;
-import org.openscada.opc.lib.da.Server;
-import static org.easymock.EasyMock.*;
+
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 /**
  * Created by skioppetto on 21/03/14.
  */
 public class OPCProducerTest {
 
-    Server srvMock;
+    private BlockingQueue<IOPCMessage> queue = new ArrayBlockingQueue<IOPCMessage>(50);
 
-    @Before
-    public void setUpServer (){
-         srvMock = createMock(Server.class);
-
-    }
+    @TestSubject
+    private OPCProducer producer;
 
     @Test
-    public void testBuild(){
-
-        // behavoir
-
-
+    public void testEvent() throws OPCException, InterruptedException {
+        producer = new OPCProducer(new MatrikonSimContext(new MatrikonSimLocalConnInfo()), queue);
+        Thread.sleep(5000);
+        Assert.assertFalse(queue.isEmpty());
+        OPCMessageGroup latest = (OPCMessageGroup) queue.peek();
+        Assert.assertEquals("Random.Boolean", latest.getName());
+        Assert.assertNotNull(latest.getItems());
+        Assert.assertTrue(latest.getItems().size() > 0);
     }
 
 

@@ -7,7 +7,10 @@ import java.util.Date;
  */
 public interface IOPCMessage {
 
+    /**@return new OPC item name*/
     String getName();
+    /**@return new OPC short code for quality.
+     * The meaning dipends on Server implementation.*/
     int getQuality();
     String getJsonValue();
     String getDataType();

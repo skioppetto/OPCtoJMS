@@ -1,13 +1,14 @@
 package ac.opctojms;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by skioppetto on 23/03/14.
  */
-public class OPCCntxTest implements  IOPCContext {
+public class OPCContextTest implements  IOPCContext {
 
     String[] tstArray = new String[]{"grp1", "grp2"};
     String[] tstItemsGrp1 = new String[]{"grp1.itm1", "grp1.itm2"};
@@ -16,7 +17,7 @@ public class OPCCntxTest implements  IOPCContext {
 
     private IOPCConnectionInfo connInfo = new OPCConnInfoTest();
 
-    public OPCCntxTest(){
+    public OPCContextTest(){
         grpMap.put(tstArray[0], tstItemsGrp1);
         grpMap.put(tstArray[1], tstItemsGrp2);
     }
@@ -27,7 +28,7 @@ public class OPCCntxTest implements  IOPCContext {
     }
 
     @Override
-    public Iterable<? extends String> getOPCGroupItemKeys(String name) {
+    public Collection<? extends String> getOPCGroupItemKeys(String name) {
         return Arrays.asList(grpMap.get(name));
     }
 
