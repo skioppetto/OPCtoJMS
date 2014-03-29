@@ -4,12 +4,13 @@ package ac.opctojms;
  * Created by skioppetto on 25/03/14.
  */
 public class MatrikonSimLocalConnInfo implements IOPCConnectionInfo {
-    private  String osUser = "skioppetto";
+    private String osUser = "skioppetto";
     private String osPassword;
 
-    public MatrikonSimLocalConnInfo(){}
+    public MatrikonSimLocalConnInfo() {
+    }
 
-    public MatrikonSimLocalConnInfo(String osUser, String osPassword){
+    public MatrikonSimLocalConnInfo(String osUser, String osPassword) {
         this.osPassword = osPassword;
         this.osUser = osUser;
     }
@@ -21,9 +22,7 @@ public class MatrikonSimLocalConnInfo implements IOPCConnectionInfo {
 
     @Override
     public String getServerClsid() {
-      // return "F8582CF3-88FB-11D0-B850-00C0F0104305";
-       return "F8582CF2-88FB-11D0-B850-00C0F0104305";
-    //    return "";
+        return "F8582CF2-88FB-11D0-B850-00C0F0104305";
     }
 
     @Override
