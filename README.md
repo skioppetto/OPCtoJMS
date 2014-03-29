@@ -16,7 +16,7 @@ To use it:
      // listen to queue to get some OPCMessageGroup
 ```
 Known bugs:
-#5 - sometimes OPC server reconnection fail.
+bug 5 - sometimes OPC server reconnection fail.
 
 Initial Import.
 
