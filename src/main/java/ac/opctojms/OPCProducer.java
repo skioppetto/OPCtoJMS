@@ -18,6 +18,8 @@ public class OPCProducer implements IItemChangeCallback {
     private final BlockingQueue<IOPCMessage> queue;
     private final Map<String, String> triggerGroup = new HashMap<String, String>();
 
+    /**constructor build and init the object.
+     * After built it starts listening to OPC server changes*/
     public OPCProducer(IOPCContext map, BlockingQueue<IOPCMessage> queue) throws OPCException {
         this.context = map;
         this.queue = queue;
@@ -25,6 +27,7 @@ public class OPCProducer implements IItemChangeCallback {
         init();
     }
 
+    /*init logic can be overriden.*/
     protected void init() throws OPCException {
         sm.connect();
         //TODO: add to context IOPCGroupInfo to define group grained config
@@ -41,6 +44,8 @@ public class OPCProducer implements IItemChangeCallback {
         }
     }
 
+    /**this public method should not be used by clients.
+     * It's a callback to manage OPC messages reception*/
     @Override
     public void onChange(IOPCMessage item) {
           OPCMessageGroup messageGroup = new OPCMessageGroup(item);
