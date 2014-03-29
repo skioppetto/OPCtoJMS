@@ -3,7 +3,6 @@ package ac.opctojms;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Queue;
 import java.util.concurrent.BlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -59,5 +58,27 @@ public class OPCProducer implements IItemChangeCallback {
         } catch (InterruptedException e) {
             Logger.getLogger(OPCProducer.class.getName()).log(Level.SEVERE, "Interrupted while sending to queue.", e);
         }
+    }
+
+    /**
+     * this method disconnects from the OPC server
+     */
+    public void disconnect() {
+        if (sm.isConnected()) {
+            sm.disconnect();
+            triggerGroup.clear();
+        }
+    }
+
+    /**
+     * this method connect after checking current connection status
+     */
+    public void connect() throws OPCException {
+        if (!sm.isConnected())
+            init();
+    }
+
+    public boolean isConnected() {
+        return sm.isConnected();
     }
 }

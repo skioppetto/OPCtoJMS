@@ -1,9 +1,5 @@
 package ac.opctojms;
 
-import ac.opctojms.IOPCMessage;
-import ac.opctojms.MatrikonSimLocalConnInfo;
-import ac.opctojms.OPCException;
-import ac.opctojms.ServerManager;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -40,11 +36,13 @@ public class ServerManagerTest {
     @Before
     public void setUpConnection () throws Throwable {
         sm.connect();
+        Assert.assertTrue(sm.isConnected());
     }
 
     @After
     public void setDownConnection() throws  Throwable{
         sm.disconnect();
+        Assert.assertFalse(sm.isConnected());
     }
 
     @Test

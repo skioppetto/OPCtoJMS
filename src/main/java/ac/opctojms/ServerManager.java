@@ -1,6 +1,8 @@
 package ac.opctojms;
 
 import org.jinterop.dcom.common.JIException;
+import org.openscada.opc.dcom.da.OPCSERVERSTATE;
+import org.openscada.opc.dcom.da.OPCSERVERSTATUS;
 import org.openscada.opc.lib.common.AlreadyConnectedException;
 import org.openscada.opc.lib.common.ConnectionInformation;
 import org.openscada.opc.lib.common.NotConnectedException;
@@ -38,7 +40,8 @@ public class ServerManager  {
 
     /**try to disconnect the OPC Server*/
     public void disconnect()  {
-            server.disconnect();
+        server.disconnect();
+        itemsCache.clear();
     }
 
     public void addGroup (String groupName, Collection<? extends String> items) throws OPCException {
@@ -122,6 +125,11 @@ public class ServerManager  {
 
     }
 
-//    public void handleHasChanged(String itemName,I){}
-
+    /**
+     * test current connection status
+     */
+    public boolean isConnected() {
+        OPCSERVERSTATUS state = server.getServerState();
+        return (state != null && OPCSERVERSTATE.OPC_STATUS_RUNNING.equals(state.getServerState()));
+    }
 }
