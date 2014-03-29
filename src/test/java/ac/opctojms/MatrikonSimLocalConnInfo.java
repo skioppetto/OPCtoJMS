@@ -5,7 +5,7 @@ package ac.opctojms;
  */
 public class MatrikonSimLocalConnInfo implements IOPCConnectionInfo {
     private  String osUser = "skioppetto";
-    private  String osPassword = "tizzone";
+    private String osPassword;
 
     public MatrikonSimLocalConnInfo(){}
 
