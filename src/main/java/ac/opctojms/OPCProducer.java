@@ -14,12 +14,12 @@ public class OPCProducer implements IItemChangeCallback {
 
     private final IOPCContext context;
     private final ServerManager sm;
-    private final BlockingQueue<IOPCMessage> queue;
+    private final BlockingQueue<OPCMessage> queue;
     private final Map<String, String> triggerGroup = new HashMap<String, String>();
 
     /**constructor build and init the object.
      * After built it starts listening to OPC server changes*/
-    public OPCProducer(IOPCContext map, BlockingQueue<IOPCMessage> queue) throws OPCException {
+    public OPCProducer(IOPCContext map, BlockingQueue<OPCMessage> queue) throws OPCException {
         this.context = map;
         this.queue = queue;
         this.sm = new ServerManager(map.getConnectionInfo());
@@ -47,7 +47,7 @@ public class OPCProducer implements IItemChangeCallback {
      * It's a callback to manage OPC messages reception*/
     @Override
     public void onChange(IOPCMessage item) {
-          OPCMessageGroup messageGroup = new OPCMessageGroup(item);
+        OPCMessage messageGroup = new OPCMessage(item);
         String groupName = triggerGroup.get(item.getName());
         try {
             Collection<? extends IOPCMessage> group = sm.readGroup(false, groupName);

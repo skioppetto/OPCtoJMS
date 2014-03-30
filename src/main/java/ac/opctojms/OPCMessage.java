@@ -6,12 +6,12 @@ import java.util.Date;
 /**
  * Created by skioppetto on 23/03/14.
  */
-public class OPCMessageGroup implements IOPCMessage {
+public class OPCMessage implements IOPCMessage {
 
     private Collection<? extends IOPCMessage> items;
     private final IOPCMessage delegate;
 
-    public OPCMessageGroup(IOPCMessage delegate) {
+    public OPCMessage(IOPCMessage delegate) {
         this.delegate = delegate;
     }
 

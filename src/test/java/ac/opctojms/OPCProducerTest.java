@@ -13,7 +13,7 @@ import java.util.concurrent.BlockingQueue;
  */
 public class OPCProducerTest {
 
-    private BlockingQueue<IOPCMessage> queue = new ArrayBlockingQueue<IOPCMessage>(50);
+    private BlockingQueue<OPCMessage> queue = new ArrayBlockingQueue<OPCMessage>(50);
 
     private OPCProducer producer;
 
@@ -33,7 +33,7 @@ public class OPCProducerTest {
         Assert.assertTrue(producer.isConnected());
         Thread.sleep(5000);
         Assert.assertFalse(queue.isEmpty());
-        OPCMessageGroup latest = (OPCMessageGroup) queue.peek();
+        OPCMessage latest = queue.peek();
         Assert.assertEquals("Random.Boolean", latest.getName());
         Assert.assertNotNull(latest.getItems());
         Assert.assertTrue(latest.getItems().size() > 0);
