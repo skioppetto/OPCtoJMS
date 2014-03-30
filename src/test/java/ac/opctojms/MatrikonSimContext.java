@@ -6,11 +6,13 @@ import java.util.Collection;
 /**
  * Created by skioppetto on 25/03/14.
  */
-public class MatrikonSimContext implements IOPCContext{
+public class MatrikonSimContext implements IOPCContext {
 
     private final IOPCConnectionInfo connInfo;
 
-    public MatrikonSimContext(IOPCConnectionInfo info){this.connInfo = info;}
+    public MatrikonSimContext(IOPCConnectionInfo info) {
+        this.connInfo = info;
+    }
 
     @Override
     public Iterable<? extends String> getOPCGroupNames() {
@@ -19,7 +21,7 @@ public class MatrikonSimContext implements IOPCContext{
 
     @Override
     public Collection<? extends String> getOPCGroupItemKeys(String name) {
-        return Arrays.asList( "Random.UInt4",
+        return Arrays.asList("Random.UInt4",
                 "Random.UInt1",
                 "Random.Time",
                 "Random.String",
@@ -49,22 +51,12 @@ public class MatrikonSimContext implements IOPCContext{
                 public boolean isTrigger() {
                     return true;
                 }
-
-                @Override
-                public ReturnTypeEnum getReturnMethod() {
-                    return ReturnTypeEnum.Group;
-                }
             };
         else
             return new IOPCItemInfo() {
                 @Override
                 public boolean isTrigger() {
                     return false;
-                }
-
-                @Override
-                public ReturnTypeEnum getReturnMethod() {
-                    return ReturnTypeEnum.Group;
                 }
             };
     }

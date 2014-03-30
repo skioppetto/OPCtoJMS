@@ -5,9 +5,9 @@ package ac.opctojms;
  */
 public interface IOPCItemInfo {
 
-    /**if true, the item will be listened for changes*/
+    /**
+     * if true, the item will be listened for changes
+     */
     boolean isTrigger();
 
-    /**return method*/
-    ReturnTypeEnum getReturnMethod();
 }
