@@ -7,8 +7,8 @@ The target is to read realtimes changes from an OPC server and decouple elaborat
 1.0: OPCProducer works perfectly. Now it connects to an OPC-DA server, listen to trigger changes and
 report the state of a group of items to a BlockingQueue.
 To use it:
-1 - implements IOPCCotext to match your needs (see MatrikonSimContext to get inspired). Let's call it MyOPCContext
-2 - Follow this snippet:
+- 1  implements IOPCCotext to match your needs (see MatrikonSimContext to get inspired). Let's call it MyOPCContext
+- 2  Follow this snippet:
 ```
      private BlockingQueue<IOPCMessage> queue = new ArrayBlockingQueue<IOPCMessage>(QUEUE_LIMIT);
      private OPCProducer producer;
@@ -16,7 +16,7 @@ To use it:
      // listen to queue to get some OPCMessageGroup
 ```
 Known bugs:
-bug 5 - sometimes OPC server reconnection fail.
+- bug 5  sometimes OPC server reconnection fail.
 
 Initial Import.
 
