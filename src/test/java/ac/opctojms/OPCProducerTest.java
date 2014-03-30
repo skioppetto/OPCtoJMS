@@ -10,6 +10,7 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  * Created by skioppetto on 21/03/14.
+ * test OPCProducer methods
  */
 public class OPCProducerTest {
 

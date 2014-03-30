@@ -5,6 +5,8 @@ import java.util.Date;
 
 /**
  * Created by skioppetto on 23/03/14.
+ * OPCMessage is the queued message used to communicate OPC-DA objects
+ * to the consumer
  */
 public class OPCMessage implements IOPCMessage {
 

@@ -9,6 +9,8 @@ import java.util.logging.Logger;
 
 /**
  * Created by skioppetto on 21/03/14.
+ * OPCProducer reads from an OPC-DA server and produce some @see{OPCMessage} objects
+ * and push them in a queue
  */
 public class OPCProducer implements IItemChangeCallback {
 
