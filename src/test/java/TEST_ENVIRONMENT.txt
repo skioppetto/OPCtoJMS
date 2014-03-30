@@ -1,14 +1,16 @@
+#What you need to get test running:
 
-What you need to get test running:
-1 - Windows 7 OS.
+- 1. Windows 7 OS.
     Probably it works with other versions.
 
-2 - Matrikon OPC Simulation Server.
+- 2. Matrikon OPC Simulation Server.
     You can get it here: https://www.matrikonopc.com/downloads/178/drivers/index.aspx
     Needs registration first.
 
-3 - Disable Windows Firewall or find the way to disable Firewall for DCOM local communication.
+- 3. Disable Windows Firewall or find the way to disable Firewall for DCOM local communication.
 
-4 - check "Component Services" in "Control Panel".
+- 4. check "Component Services" in "Control Panel".
     Find on DCOM config the service named "MatrikonOPC Server for Simulation and Testing". Compare the appID
-    with the clsID set
+    with the clsID set in _MatrikonSimLocalConnInfo.java_
+
+- 5. Check OS user/password in _MatrikonSimLocalConnInfo.java_ 
