@@ -1,25 +1,25 @@
 package ac.opctojms;
 
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by skioppetto on 23/03/14.
  */
 public class OPCMessageGroup implements IOPCMessage {
 
-    private List<IOPCMessage> items;
+    private Collection<? extends IOPCMessage> items;
     private final IOPCMessage delegate;
 
     public OPCMessageGroup(IOPCMessage delegate) {
         this.delegate = delegate;
     }
 
-    public List<IOPCMessage> getItems(){
+    public Collection<? extends IOPCMessage> getItems(){
         return items;
     }
 
-    public void setItems(List<IOPCMessage> items) {
+    public void setItems(Collection<? extends IOPCMessage> items) {
         this.items = items;
     }
 

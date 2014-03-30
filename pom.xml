@@ -34,7 +34,11 @@
            <artifactId>org.openscada.jinterop.deps</artifactId>
            <version>${utgard.version}</version>
        </dependency>
-
+       <dependency>
+           <groupId>jcifs</groupId>
+           <artifactId>jcifs</artifactId>
+           <version>1.3.17</version>
+       </dependency>
        <dependency>
            <groupId>junit</groupId>
            <artifactId>junit</artifactId>

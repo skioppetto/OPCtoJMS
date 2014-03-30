@@ -1,9 +1,6 @@
 package ac.opctojms;
 
-import org.openscada.opc.lib.da.Server;
-
 import java.util.Collection;
-import java.util.List;
 
 /**
  * Created by skioppetto on 21/03/14.
@@ -17,13 +14,13 @@ public interface IOPCContext {
     Iterable<? extends String> getOPCGroupNames();
 
     /**@return OPC Items by Group Name*/
-    Iterable<? extends String> getOPCGroupItemKeys(String name);
+    Collection<? extends String> getOPCGroupItemKeys(String name);
 
     /**@return a @see{IOPCConnectionInfo.class}*/
     IOPCConnectionInfo getConnectionInfo();
 
     /**@return a @see{IOPCItemInfo.class} from an item key
-     * @param groupName
-     * @param itemName*/
+     * @param groupName group name
+     * @param itemName item name */
     IOPCItemInfo getOPCItemInfo(String groupName, String itemName);
 }
