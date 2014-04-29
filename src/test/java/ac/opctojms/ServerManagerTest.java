@@ -12,7 +12,7 @@ import java.util.Arrays;
  */
 public class ServerManagerTest {
 
-    private MatrikonSimLocalConnInfo connInfo = new MatrikonSimLocalConnInfo ("skioppetto", "tizzone");
+    private MatrikonSimLocalConnInfo connInfo = new MatrikonSimLocalConnInfo ();
     private ServerManager sm = new ServerManager(connInfo);
 
     String[] testItemsSimple = new String[]{
